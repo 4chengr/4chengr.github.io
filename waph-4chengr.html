@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+      <title>WAPH-Ryan Cheng</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+
+        <script src="http://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+        <-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <link href="css/styles.css" rel="stylesheet"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href=https://waph-phung.github.io/style1.css>
+    <style>
+       .button {
+        background-color:#4CAF50;/*Green*/
+        border:none;
+        color:white;
+        padding:5px;
+        text-align:center;
+        text-decoration:none;
+        display:inline-block;
+        font-size:12px;
+        margin:4px 2px;
+        cursor:pointer;
+        }
+        .round{border-radius:8px;}
+        #response{
+            background-color:#ff9800;/*Orange*/
+            max-width: 70%;
+            margin: 0 auto; /* Centers the box horizontally */
+        }
+    </style>
+
+    <script   src="https://code.jquery.com/jquery-3.7.1.min.js"   
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
+
+    <style>
+         body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #f5f6f7;
+         }
+          p {font-size: 16px;}
+          .margin {margin-bottom: 45px;}
+          .bg-1 { 
+            background-color: #1abc9c;
+            color: #ffffff;
+          }
+          .bg-2 { 
+            background-color: #474e5d;
+            color: #ffffff;
+          }
+          .bg-3 { 
+            background-color: #ffffff;
+            color: #555555;
+          }
+          .bg-4 { 
+            background-color: #2f2f2f;
+            color: #fff;
+          }
+          .bg-6 {
+            background-color: #f0f0f0;
+            color: #333333;
+          }
+          .bg-7 {
+            background-color: #e8e8e8;
+            color: #333333;
+            
+          }
+          .bg-8 {
+            background-color: #d0d0d0;
+            color: #333333;
+            
+          }
+          .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+          }
+          .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+          }
+          .navbar-nav  li a:hover {
+            color: #1abc9c !important;
+          }
+          .resume-section {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 50px 0;
+          }
+          .resume-section h2,
+          .resume-section h3,
+          .resume-section h4,
+          .resume-section p,
+          .resume-section ul,
+          .resume-section li,
+          .resume-section div {
+            color: #333333;
+          }
+          .text-primary {
+            color: #1abc9c !important;
+          }
+
+          .section-title {
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+          }
+          .experience-item, .education-item {
+            margin-bottom: 25px;
+          }
+          .date {
+            color: #1abc9c;
+            font-weight: bold;
+          }
+          .skills-list {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+
+
+        .weather-widget {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .weather-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .interactive-widget {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .output-box {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .color-button {
+            background-color: #00b894;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .color-button:hover {
+            transform: scale(1.05);
+        }
+
+        #text-display {
+            font-size: 1.2em;
+            margin: 15px 0;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+
+
+
+  
+
+</head>
+
+
+<body>
+
+
+<!-- Cookie -- HTML elements for the WelcomeSystem -->
+
+<div id="welcomeOverlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+">
+    <div style="
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 500px;
+        margin: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        animation: slideIn 0.5s ease-out;
+    ">
+        <h2 id="welcomeTitle" style="margin-bottom: 20px; font-size: 2em;">Welcome!</h2>
+        <p id="welcomeMessage" style="margin-bottom: 25px; font-size: 1.1em; line-height: 1.5;">
+            Thank you for visiting my website!
+        </p>
+        <div id="visitCount" style="margin-bottom: 20px; font-size: 0.9em; opacity: 0.8;">
+            Visit count: 1
+        </div>
+        <button id="welcomeButton" style="
+            background-color: #fff;
+            color: #1abc9c;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            Continue
+        </button>
+    </div>
+</div>
+
+<style>
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+
+
+<style>
+.section-title {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.experience-item, .education-item {
+    margin-bottom: 25px;
+}
+.date {
+    color: #1abc9c;
+    font-weight: bold;
+}
+.skills-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+</style>
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ryan Z. Cheng</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#education">EDUCATION</a></li>
+                <li><a href="#experience">EXPERIENCE</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#awards">AWARDS</a></li>
+                <li><a href="#waph-4chengr-course.html">WAPH-LINKS</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- First Container  (General Information )-->
+<div class="container-fluid bg-1 text-center" id="about">
+    <h1 class="margin">Ryan Z. Cheng</h1>
+    <img src="images/ryan-headshot.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Ryan" width="150" height="150">
+   
+    <h3>Software Developer & Electrical & Computer Engineering Student</h3>
+    <p>Cornell University - College of Engineering</p>
+    
+    <!-- Show/Hide email -->
+    <div id="email" onclick="showhideEmail()">Show my email</div>
+      <script src="email.js"></script>
+    <p> Website: ryanviolin.com</p>
+</div>
+
+
+<div class="container-fluid bg-2 text-center" id="where">
+  <h3 class="margin">Where am I headed?</h3>
+  <p>As an Electrical and Computer Engineering student and software developer, I'm driven to solve complex problems where hardware meets intelligent software. My passion lies in leveraging computational tools to bridge technological innovation with real-world impact in critical domains. I seek research or internship opportunities in AI, Robotics, or software development (financial/medical/educational) where I can apply my multidisciplinary skills in machine learning, computer vision, circuit design, and full-stack development to advance next-generation solutions.</p>
+  
+</div>
+
+<div class="container-fluid bg-3 text-center" id="who">    
+  <h3 class="margin">Who Am I?</h3><br>
+  <div class="row">
+    <div class= "text-justify">
+        <div class="col-sm-4">
+        <p>As I positioned the Starry Night painting under my phone camera, I was ecstatic to see "Style: 93%
+        Vincent van Gogh." ArtMatch, my machine-learning window to the past, was designed to match
+        artistic styles with their famous pioneers. This, however, was just the beginning of my journey in
+        image recognition. Further pursuing this field's far-reaching capabilities at the Sylvester
+        Comprehensive Cancer Center, I gained invaluable experience as a research intern.
+        </p>
+      
+        <img src="images/Ryan_Miami.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+
+        <div class="col-sm-4"> 
+        <p>I started playing violin at the age of five. In Ohio, I studied with Kurt Sassmannshaus and joined the Starling Project at the Cincinnati Conservatory of Music. I have performed at the Schuster Center as concertmaster of the Dayton Youth Philharmonic Orchestra and have since performed with the Los AngelesYouth Orchestra at Carnegie Hall. After moving to LA,  I began studying with Joan Kwuon under Colburn Conservatory in 2022. During my High School years I played as concertmaster/lead of the Oakwood and Harvard-Westlake school's orchestra. Within my violin career, I have won first and second prizes in several international competitions.
+        </p>
+        <img src="images/Ryan_Violin.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+
+
+
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- <title>Performance Sample Player</title> -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+            
+            <button id="playVideo">Click to Watch a Performance Sample</button>
+            
+                <div id="videoContainer" style="display:none;">
+                    <div id="videoWrapper"></div>
+                    <button id="closeVideo">Close Video</button>
+                </div>
+
+            <script>
+                $(document).ready(function() {
+                    const videoId = 'HxjktCvr5P4';
+                    
+                    $('#playVideo').on('click', function() {
+                        const youtubeEmbed = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allowfullscreen></iframe>`;
+                        $('#videoWrapper').html(youtubeEmbed);
+                        $('#videoContainer').show();
+                    });
+                    
+                    $('#closeVideo').on('click', function() {
+                        $('#videoContainer').hide();
+                        $('#videoWrapper').empty();
+                    });
+                });
+            </script>
+        </div>
+
+        <div class="col-sm-4"> 
+        <p>Every single lesson, Mika brings her quarter-sized violin, her beginner Suzuki Music book, and,
+        without fail, her radiant smile. Each Saturday, it's my privilege to teach her through my school's
+        Plot Twist club, which is dedicated to spreading music to under-resourced and hospitalized
+        children. Siji, the club leader at the time, introduced me to nine-year-old Mika during my
+        sophomore year. While her enthusiasm and talent were apparent from the start, she is one of the
+        many students who have musical passions but lack the resources to see their full potential.
+        </p>
+        <img src="images/Ryan_HW.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Second Container (Education) -->
+<div class="container-fluid bg-2 text-center" id="education">
+    <h2 class="section-title">EDUCATION</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-left">
+            <div class="education-item">
+                <h4><span class="date">2024-Present</span> Cornell University – College of Engineering</h4>
+                <p>Pursuing Electrical and Computer Engineering with a minor in Computer Science – GPA 4.08</p>
+            </div>
+            <div class="education-item">
+                <h4><span class="date">2021-2024</span> Harvard-Westlake School – Studio City, CA, US</h4>
+                <p>GPA 4.52 | SAT 1570, PSAT 1490</p>
+                <p>AP Test Scores: 5 (AP Computer Science A), 5 (AP Chemistry), 5 (AP BC Calculus), 4 (AP US History)</p>
+            </div>
+            <div class="education-item">
+                <h4><span class="date">2020-2021</span> Oakwood High School – Oakwood, OH, US</h4>
+                <p>GPA 4.00 (unweighted)</p>
+                <p>AP Test Scores: 5 (AP World History), 5 (AP Music Theory)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Third Container (Experience) -->
+<div class="container-fluid bg-3" id="experience">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="section-title text-center">SOFTWARE DEVELOPMENT EXPERIENCE</h2>
+            
+            <div class="experience-item">
+                <h4><span class="date">2024-Present</span> Cornell Mars Rover Project Team</h4>
+                <p>Working on the software development branch, programming the rover's automation with computer vision and path-finding algorithms.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2022</span> Voice Recognition Spelling App</h4>
+                <p>Individually developed a program that recognizes alphabet characters from live voice input. Used this to develop a children's spelling app that quizzes and checks spelling through voice input.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2022</span> Thinkable</h4>
+                <p>Developed an online forum for academic tutoring which placed Top 5 in the Harvard-Westlake School Hackathon.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2021</span> Art Classification App</h4>
+                <p>Individually developed a machine-learning model that classifies famous paintings by their style and artist. Built an app that takes in user-created artwork and outputs the most similar famous painting.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2020</span> Poly Roller</h4>
+                <p>Individually developed a typing game with Unity.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fourth Container (Skills) -->
+<div class="container-fluid bg-2" id="skills">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="section-title text-center">SKILLS & TOOLS</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++/C#</li>
+                <li>MATLAB</li>
+                <li>Blender</li>
+                <li>Unity</li>
+                <li>TensorFlow</li>
+                <li>TensorFlow Lite</li>
+                <li>Xcode</li>
+                <li>ReactJS</li>
+                <li>React Native</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Fifth Container (Awards) -->
+<div class="container-fluid bg-3" id="awards">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="section-title text-center">AWARDS & ACTIVITIES</h2>
+            
+            <div class="experience-item">
+                <h4><span class="date">2024</span> National Merit Finalist</h4>
+                
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2023-2024</span> Harvard-Westlake Elected Senior Prefect</h4>
+                <p>Worked as one of four representatives coordinating community events and academics.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2022</span> LLS Student of the Year Fundraising</h4>
+                <p>Los Angeles 1st Place, United States 8th Place (>$317,000)</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4><span class="date">2020</span> Congressional App Challenge 1st Place</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Codes related to extra features  Course info, digital clock, analog clock-->
+
+<!-- Sixth Container (API) -->
+
+<div class="container-fluid bg-8" id="waph-links">
+  <div class="container text-center">
+
+    <div class="container-fluid bg-6" id="API">   
+
+
+        <div id="top">
+            <h1>Web Application Programming and Hacking</h1>
+            <h2>Front-end Web Development Lab</h2>
+            <h3>Instructor: Dr. Phu Phung</h3>
+            
+                <a href="https://github.com/waph-phung/waph">Course Information</a>
+
+        </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="container-fluid bg-7" id="interactive1">
+  <div class="container text-center">
+    <div id="experience-item">
+
+<!-- DIGITAL CLOCK and ANALOG CLOCK-->   
+      <div id="digital-clock"></div>
+      <script type="text/javascript">
+        function displayTime() {
+          document.getElementById('digital-clock').innerHTML ="Current time:" + new Date();
+        }
+        setInterval(displayTime, 500);
+
+
+      </script>
+    
+      <canvas id="analog-clock" width="150" height="150" style="background-color:#999"></canvas>
+    
+      <script src="https://waph-phung.github.io/clock.js"></script>
+      <script>
+        var canvas = document.getElementById("analog-clock");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 1000);
+
+        function drawClock() {
+          drawFace(ctx, radius);
+          drawNumbers(ctx, radius);
+          drawTime(ctx, radius);
+      }
+      </script>
+
+    </div>      
+  </div>           
+</div>
+
+<!-- Fetching Joke -->
+
+<div class="container-fluid bg-7" id="interactive2">
+  <div class="container text-center">
+     <script>
+
+        function getJoke() {
+
+          $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (result) {
+              console.log("From jokeAPI: " + JSON.stringify(result));
+              $("#response" ).html( "A programming joke of the day: " + result.joke);
+          });
+        } 
+        setInterval(getJoke,60000);  // Since 60 s is 60000 ms
+        getJoke();
+
+     </script>
+
+     <script>
+
+      
+// GUESING AGE 
+
+      async function guessAge(name){
+          const response = await fetch("https://api.agify.io/?name="+name);
+          const result = await response.json();
+          $("#response").html("Hi " + name + ", your age should be " + result.age);
+
+      }
+      </script>
+    
+
+      <div>
+        <i>I can guess your age!</i><br>
+        Please Type Your Name:
+        <input name="data"
+            onkeypress="console.log('You have pressed a key')" id="data">
+      </div>
+
+       
+        <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
+        
+        <div id="response"></div>
+      
+      
+    
+    </div>
+</div>
+
+
+<!-- LATEST    WEATHER -->
+<!-- Getting latest weather -->
+
+<div class="container-fluid bg-6" id="weather">
+    <div class="container text-center">
+        <h2 class="section-title">CURRENT WEATHER</h2>
+        <div class="weather-widget" id="weather-info">
+            <div class="weather-icon">
+                <i class="fas fa-cloud"></i>
+            </div>
+            <div>Loading weather data...</div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    function getWeather() {
+        // Using a free weather API that doesn't require an API key for testing
+        // 
+        $.get("https://api.open-meteo.com/v1/forecast?latitude=39.76&longitude=-84.19&current_weather=true")
+        .done(function(result) {
+            if (!result.current_weather) {
+                throw new Error("No weather data available");
+            }
+            
+            const weatherData = result.current_weather;
+            const temperature = weatherData.temperature;
+            const weatherCode = weatherData.weathercode;
+            
+            // Map weather codes to descriptions and icons
+            const weatherCodes = {
+                0: {desc: "Clear sky", icon: "fas fa-sun", img: "https://cdn-icons-png.flaticon.com/512/3222/3222807.png"},
+                1: {desc: "Mainly clear", icon: "fas fa-cloud-sun", img: "https://cdn-icons-png.flaticon.com/512/1163/1163661.png"},
+                2: {desc: "Partly cloudy", icon: "fas fa-cloud-sun", img: "https://cdn-icons-png.flaticon.com/512/1163/1163661.png"},
+                3: {desc: "Overcast", icon: "fas fa-cloud", img: "https://cdn-icons-png.flaticon.com/512/1146/1146869.png"},
+                45: {desc: "Fog", icon: "fas fa-smog", img: "https://cdn-icons-png.flaticon.com/512/2936/2936886.png"},
+                48: {desc: "Freezing fog", icon: "fas fa-smog", img: "https://cdn-icons-png.flaticon.com/512/2936/2936886.png"},
+                51: {desc: "Light drizzle", icon: "fas fa-cloud-rain", img: "https://cdn-icons-png.flaticon.com/512/4150/4150904.png"},
+                53: {desc: "Moderate drizzle", icon: "fas fa-cloud-rain", img: "https://cdn-icons-png.flaticon.com/512/4150/4150904.png"},
+                55: {desc: "Dense drizzle", icon: "fas fa-cloud-rain", img: "https://cdn-icons-png.flaticon.com/512/4150/4150904.png"},
+                56: {desc: "Freezing drizzle", icon: "fas fa-cloud-rain", img: "https://cdn-icons-png.flaticon.com/512/4150/4150904.png"},
+                57: {desc: "Dense freezing drizzle", icon: "fas fa-cloud-rain", img: "https://cdn-icons-png.flaticon.com/512/4150/4150904.png"},
+                61: {desc: "Light rain", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                63: {desc: "Moderate rain", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                65: {desc: "Heavy rain", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                66: {desc: "Freezing rain", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                67: {desc: "Heavy freezing rain", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                71: {desc: "Light snow", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                73: {desc: "Moderate snow", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                75: {desc: "Heavy snow", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                77: {desc: "Snow grains", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                80: {desc: "Light showers", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                81: {desc: "Moderate showers", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                82: {desc: "Violent showers", icon: "fas fa-cloud-showers-heavy", img: "https://cdn-icons-png.flaticon.com/512/4150/4150897.png"},
+                85: {desc: "Light snow showers", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                86: {desc: "Heavy snow showers", icon: "fas fa-snowflake", img: "https://cdn-icons-png.flaticon.com/512/2675/2675849.png"},
+                95: {desc: "Thunderstorm", icon: "fas fa-bolt", img: "https://cdn-icons-png.flaticon.com/512/2930/2930087.png"},
+                96: {desc: "Thunderstorm with hail", icon: "fas fa-bolt", img: "https://cdn-icons-png.flaticon.com/512/2930/2930087.png"},
+                99: {desc: "Heavy thunderstorm with hail", icon: "fas fa-bolt", img: "https://cdn-icons-png.flaticon.com/512/2930/2930087.png"}
+            };
+
+            const weatherInfo = weatherCodes[weatherCode] || {desc: "Unknown", icon: "fas fa-question", img: "https://cdn-icons-png.flaticon.com/512/3261/3261915.png"};
+            
+            const weatherText = `
+                <div class="weather-icon">
+                    <img src="${weatherInfo.img}" alt="${weatherInfo.desc}" style="width: 80px; height: 80px;">
+                    <i class="${weatherInfo.icon}" style="display: none;"></i>
+                </div>
+                <div class="weather-description">${weatherInfo.desc}</div>
+                <div class="temperature">${temperature}°C</div>
+                <div class="location">Dayton, OH, US</div>
+            `;
+
+            $("#weather-info").html(weatherText);
+        })
+        .fail(function(error) {
+            console.error('Error fetching weather:', error.responseJSON || error);
+            $("#weather-info").html(`
+                <div class="weather-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3261/3261915.png" alt="Error" style="width: 80px; height: 80px;">
+                    <i class="fas fa-exclamation-triangle" style="display: none;"></i>
+                </div>
+                <div>Weather data unavailable</div>
+                <div class="small">Try refreshing the page</div>
+            `);
+        });
+    }
+
+    // Initial call
+    getWeather();
+    
+    // Refresh every 30 minutes (1800000 ms)
+    setInterval(getWeather, 1800000);
+});
+</script>
+
+
+
+<!-- INTERACTIVE TEXT TRANSFORMER  -->
+<!-- Eighth Container (Interactive Feature) -->
+<div class="container-fluid bg-5" id="interactive">
+    <div class="container text-center">
+        <h2 class="section-title">INTERACTIVE TEXT TRANSFORMER</h2>
+        <div class="interactive-widget">
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="user-text" placeholder="Enter some text..." 
+                       style="padding: 10px; border: none; border-radius: 5px; width: 250px; margin-bottom: 15px; color: red;">
+            </div>
+            
+            <div>
+                <button class="color-button" onclick="reverseText()">Reverse Text</button>
+                <button class="color-button" onclick="upperCaseText()">UPPERCASE</button>
+                <button class="color-button" onclick="lowerCaseText()">lowercase</button>
+                <button class="color-button" onclick="countWords()">Count Words</button>
+                <button class="color-button" onclick="randomColor()">Change Color</button>
+            </div>
+            
+            <div id="click-counter" style="margin-top: 15px; font-size: 0.9em;">
+                Transformations made: <span id="counter">0</span>
+
+
+                <style>
+                    .output-box {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 100vh;
+                        margin: 0;
+                        }
+                    .output-box {
+                            width: 100%;
+                            text-align: center;
+                        }
+                </style>
+
+                <div class="output-box" id="text-display">
+                    <div>
+                        Transform your text with the buttons above!
+                     </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        
+
+        <script>
+        let transformCount = 0;
+        const colors = ['#00b894', '#e17055', '#fdcb6e', '#6c5ce7', '#fd79a8', '#00cec9', '#e84393'];
+
+        function updateCounter() {
+            transformCount++;
+            $('#counter').text(transformCount);
+        }
+
+        function reverseText() {
+            const text = $('#user-text').val();
+            if (text) {
+                const reversed = text.split('').reverse().join('');
+                $('#text-display').text(reversed);
+                updateCounter();
+            } else {
+                $('#text-display').text('Please enter some text first!');
+            }
+        }
+
+        function upperCaseText() {
+            const text = $('#user-text').val();
+            if (text) {
+                $('#text-display').text(text.toUpperCase());
+                updateCounter();
+            } else {
+                $('#text-display').text('Please enter some text first!');
+            }
+        }
+
+        function lowerCaseText() {
+            const text = $('#user-text').val();
+            if (text) {
+                $('#text-display').text(text.toLowerCase());
+                updateCounter();
+            } else {
+                $('#text-display').text('Please enter some text first!');
+            }
+        }
+
+        function countWords() {
+            const text = $('#user-text').val();
+            if (text) {
+                const words = text.trim().split(/\s+/).length;
+                $('#text-display').text(`Word count: ${words}`);
+                updateCounter();
+            } else {
+                $('#text-display').text('Please enter some text first!');
+            }
+        }
+
+        function randomColor() {
+            const randomColorValue = colors[Math.floor(Math.random() * colors.length)];
+            $('.output-box').css('background', `linear-gradient(135deg, ${randomColorValue}, ${randomColorValue}aa)`);
+            $('#text-display').text('Output box color changed!');
+            updateCounter();
+        }
+
+        $('#user-text').keypress(function(e) {
+            if (e.which == 13) {
+                reverseText();
+            }
+        });
+        </script>
+    </div>
+    
+</div>
+
+
+
+
+<!--  PAGE TRACKER to remeber the client - using Cookie Manager -->
+<script>
+    //  Cookie Manager
+    const CookieManager = {
+        setCookie: function(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+            document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+        },
+        
+        getCookie: function(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.startsWith(nameEQ)) {
+                    return decodeURIComponent(cookie.substring(nameEQ.length));
+                }
+            }
+            return null;
+        },
+        
+        deleteCookie: function(name) {
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        }
+    };
+
+    
+
+    // Welcome System  & COOKIES
+    const WelcomeSystem = {
+        init: function() {
+            this.checkFirstVisit();
+            if (typeof animateSkillMeters === "function") {
+                animateSkillMeters();
+            }
+        },
+        
+        checkFirstVisit: function() {
+            const firstVisit = CookieManager.getCookie("firstVisit");
+            const visitCount = parseInt(CookieManager.getCookie("visitCount")) || 0;
+            const lastVisit = CookieManager.getCookie("lastVisit");
+            
+            const now = new Date();
+            const currentDate = now.toLocaleDateString();
+            const currentTime = now.toLocaleTimeString();
+            
+            // Update cookies
+            CookieManager.setCookie("visitCount", visitCount + 1, 365);
+            CookieManager.setCookie("lastVisit", `${currentDate} at ${currentTime}`, 365);
+            
+            // Show appropriate welcome message
+            if (!firstVisit) {
+                this.showWelcomeMessage(
+                    "Welcome to My Site!", 
+                    "Thank you for visiting ",
+                    true
+                );
+                CookieManager.setCookie("firstVisit", currentDate, 365);
+            } else {
+                this.showWelcomeMessage(
+                    "Welcome Back!",
+                    `It's great to see you back again! Your last visit was on ${lastVisit || "an unknown time"}.`,
+                    false
+                );
+            }
+            
+            // Update visit counter display
+            document.getElementById("visitCount").textContent = `Visit count: ${visitCount + 1}`;
+        },
+        
+        showWelcomeMessage: function(title, message, isFirstVisit) {
+            const overlay = document.getElementById("welcomeOverlay");
+            document.getElementById("welcomeTitle").textContent = title;
+            document.getElementById("welcomeMessage").textContent = message;
+            overlay.style.display = "flex";
+            
+            document.getElementById("welcomeButton").onclick = function() {
+                overlay.style.display = "none";
+                
+                // Additional actions for first visit if needed
+
+                // if (isFirstVisit) {
+                    // You could trigger a tutorial or special offer here
+                // }
+                
+            };
+        }
+    };
+
+    // Initialize when DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        WelcomeSystem.init();
+    });
+</script>
+
+
+
+
+<!-- FETCHING LATEST NEWS -->
+<div class="container-fluid bg-6" id="interactive">
+  <div class="container text-center">
+    
+    <title>LATEST NEWS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <style>
+       
+
+        .news-item {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .news-item img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .news-item h2 {
+            color: #333;
+            margin: 15px 0 10px 0;
+        }
+        .news-item p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .news-item a {
+            background: #007bff;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+
+
+    <h1> Top News</h1>
+
+    <div id="loading" class="loading">Loading news...</div>
+    <div id="newsContainer"></div>
+
+    <script>
+        $(document).ready(function() {
+            const apiKey = 'e176e7ebc79c4fbeb2da550b6dbfb97f';
+            const $loading = $('#loading');
+            const $newsContainer = $('#newsContainer');
+
+            async function fetchNews() {
+                try {
+                    // Using CORS proxy to bypass NewsAPI CORS restrictions
+                    const proxyUrl = 'https://api.allorigins.win/get?url=';
+                    const targetUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+                    const url = proxyUrl + encodeURIComponent(targetUrl);
+                    
+                    const response = await axios.get(url);
+                    const data = JSON.parse(response.data.contents);
+                    
+                    $loading.hide();
+                    
+                    if (data.status === "ok" && data.articles.length > 0) {
+                        displayNews([data.articles[0]]); // Show only the top news
+                    } else {
+                        showError('No news articles found.');
+                    }
+                } catch (error) {
+                    $loading.hide();
+                    console.error('Error:', error);
+                    showError('Failed to load news. Please try again later.');
+                }
+            }
+
+            function displayNews(articles) {
+                $newsContainer.empty();
+                
+                $.each(articles, function(index, article) {
+                    if (article.title && article.title !== '[Removed]') {
+                        const imageUrl = article.urlToImage || 'https://via.placeholder.com/400x200?text=No+Image';
+                        const title = article.title || 'No title available';
+                        const description = article.description || 'No description available';
+                        const articleUrl = article.url || '#';
+                        
+                        const newsHtml = `
+                            <div class="news-item">
+                                <img src="${imageUrl}" alt="News Image" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
+                                <h2>${title}</h2>
+                                <p>${description}</p>
+                                <a href="${articleUrl}" target="_blank">Read More</a>
+                            </div>
+                        `;
+                        
+                        $newsContainer.append(newsHtml);
+                    }
+                });
+            }
+
+            function showError(message) {
+                $newsContainer.html(`<div class="error">${message}</div>`);
+            }
+
+            // Load news when page is ready
+            fetchNews();
+        });
+    </script>
+
+
+
+
+
+
+
+<!-- Fetching quote of the day -->
+    <h1>Quote of the Day</h1>
+
+
+    <div id="app">
+        <div v-if="quote.content">
+            <blockquote>
+                <p>{{ quote.content }}</p>
+                <footer>{{ quote.originator.name }}</footer>
+            </blockquote>
+        </div>
+
+        <!-- Example skill bars -->
+        <div class="skill-progress" data-skill-value="80"></div>
+        <div class="skill-progress" data-skill-value="60"></div>
+    </div>
+
+
+
+    <!-- Vue & Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Quote function -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                quote: {
+                    content: '',
+                    originator: { name: '' }
+                }
+            },
+            methods: {
+                async fetchQuote() {
+                    const options = {
+                        method: 'GET',
+                        url: 'https://random-quote-generator2.p.rapidapi.com/randomQuote',
+                        headers: {
+                            'X-RapidAPI-Key': 'b9b5a91c2emsh000a90d32a87145p1c5729jsne626d5f90d25',
+                            'X-RapidAPI-Host': 'random-quote-generator2.p.rapidapi.com'
+                        }
+                    };
+
+                    try {
+                        const response = await axios.request(options);
+                        if (Array.isArray(response.data) && response.data.length > 0) {
+                            const quote = response.data[0];
+                            this.quote.content = quote.Quote;
+                            this.quote.originator.name = quote.Author;
+                        } else {
+                            console.error("Invalid response:", response.data);
+                        }
+                    } catch (error) {
+                        console.error("Error fetching quote:", error);
+                    }
+                }
+            },
+            created() {
+                this.fetchQuote();
+                setInterval(this.fetchQuote, 12 * 60 * 60 * 1000); // refresh every 12 hours
+            }
+        });
+    </script>
+
+  </div>
+</div>
+
+
+
+
+    <!-- Disclaimer Statement -->
+
+<div class="container-fluid bg-7" id="disclaimer">
+  <div class="container text-center">
+    <h1>DISCLAIMER</h1>
+        <p>Please note that the public/third-party services generate the above contents and we are not responsible for such contents.</p>
+  </div>
+</div>
+
+
+    <!-- Giving credit to w3schools.com  -->
+    <footer class="container-fluid bg-4 text-center">
+        <p>Bootstrap Theme Made By: <a href="https://www.w3schools.com" style=" color: green;">www.w3schools.com</a></p> 
+      
+    </footer>
+
+</body>
+</html>
