@@ -862,8 +862,8 @@ $(document).ready(function() {
 
 
 <!--  PAGE TRACKER to remeber the client - using Cookie Manager -->
+<!--  UPDATED COOKIE-BASED WELCOME SYSTEM -->
 <script>
-    //  Cookie Manager
     const CookieManager = {
         setCookie: function(name, value, days) {
             const expires = new Date();
@@ -888,51 +888,43 @@ $(document).ready(function() {
         }
     };
 
-    
-
-    // Welcome System  & COOKIES
     const WelcomeSystem = {
         init: function() {
             this.checkFirstVisit();
-            if (typeof animateSkillMeters === "function") {
-                animateSkillMeters();
-            }
         },
         
         checkFirstVisit: function() {
             const firstVisit = CookieManager.getCookie("firstVisit");
-            const visitCount = parseInt(CookieManager.getCookie("visitCount")) || 0;
             const lastVisit = CookieManager.getCookie("lastVisit");
+            const visitCount = parseInt(CookieManager.getCookie("visitCount")) || 0;
             
             const now = new Date();
-            const currentDate = now.toLocaleDateString();
-            const currentTime = now.toLocaleTimeString();
+            const currentDateTime = now.toLocaleString();
             
-            // Update cookies
-            CookieManager.setCookie("visitCount", visitCount + 1, 365);
-            CookieManager.setCookie("lastVisit", `${currentDate} at ${currentTime}`, 365);
-            
-            // Show appropriate welcome message
             if (!firstVisit) {
                 this.showWelcomeMessage(
-                    "Welcome to My Site!", 
-                    "Thank you for visiting ",
-                    true
+                    "First Website Visit.", 
+                    "Welcome to my homepage for the first time!"
                 );
-                CookieManager.setCookie("firstVisit", currentDate, 365);
+                
+                CookieManager.setCookie("firstVisit", "true", 365);
+                CookieManager.setCookie("lastVisit", currentDateTime, 365);
+                CookieManager.setCookie("visitCount", 1, 365);
             } else {
+                const lastVisitTime = lastVisit || "unknown time";
                 this.showWelcomeMessage(
                     "Welcome Back!",
-                    `It's great to see you back again! Your last visit was on ${lastVisit || "an unknown time"}.`,
-                    false
+                    `Welcome back! Your last visit was ${lastVisitTime}`
                 );
+                
+                CookieManager.setCookie("lastVisit", currentDateTime, 365);
+                CookieManager.setCookie("visitCount", visitCount + 1, 365);
             }
             
-            // Update visit counter display
             document.getElementById("visitCount").textContent = `Visit count: ${visitCount + 1}`;
         },
         
-        showWelcomeMessage: function(title, message, isFirstVisit) {
+        showWelcomeMessage: function(title, message) {
             const overlay = document.getElementById("welcomeOverlay");
             document.getElementById("welcomeTitle").textContent = title;
             document.getElementById("welcomeMessage").textContent = message;
@@ -940,18 +932,10 @@ $(document).ready(function() {
             
             document.getElementById("welcomeButton").onclick = function() {
                 overlay.style.display = "none";
-                
-                // Additional actions for first visit if needed
-
-                // if (isFirstVisit) {
-                    // You could trigger a tutorial or special offer here
-                // }
-                
             };
         }
     };
 
-    // Initialize when DOM is loaded
     document.addEventListener("DOMContentLoaded", function() {
         WelcomeSystem.init();
     });
@@ -1105,6 +1089,11 @@ $(document).ready(function() {
         <div class="skill-progress" data-skill-value="60"></div>
     </div>
 
+<!-- External tracking of visitors -->
+    <div style="text-align: center; margin: 20px 0;">
+    <a href="https://info.flagcounter.com/7Ml6"><img src="https://s01.flagcounter.com/count2/7Ml6/bg_FFFFFF/txt_000000/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>      
+      </a>
+    </div>
 
 
     <!-- Vue & Axios -->
