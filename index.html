@@ -21,6 +21,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href=https://waph-phung.github.io/style1.css>
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQQVY8N6B2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HQQVY8N6B2');
+    </script>
     <style>
        .button {
         background-color:#4CAF50;/*Green*/
@@ -1095,8 +1104,80 @@ $(document).ready(function() {
       </a>
     </div>
 
+<!-- Tracking using google analytics because flagcounter is acting strange -->
+    <div class="container-fluid bg-6" id="visitor-stats">
+        <div class="container text-center">
+            <h2 class="section-title">VISITOR STATISTICS</h2>
+            <div class="weather-widget" id="visitor-info">
+                <div class="weather-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div id="visitor-count">Loading visitor data...</div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Vue & Axios -->
+    <script>
+    async function fetchVisitorCount() {
+        try {
+            const response = await gapi.client.analyticsreporting.reports.batchGet({
+                reportRequests: [{
+                    viewId: 'YOUR_VIEW_ID',
+                    dateRanges: [{
+                        startDate: '2024-01-01',
+                        endDate: 'today'
+                    }],
+                    metrics: [{
+                        expression: 'ga:users'
+                    }, {
+                        expression: 'ga:sessions'
+                    }, {
+                        expression: 'ga:pageviews'
+                    }]
+                }]
+            });
+
+            const report = response.result.reports[0];
+            const data = report.data.rows[0].metrics[0].values;
+            
+            const users = data[0];
+            const sessions = data[1];
+            const pageviews = data[2];
+
+            document.getElementById('visitor-count').innerHTML = `
+                <div style="font-size: 1.2em; margin-bottom: 10px;">
+                    <strong>Total Visitors: ${users}</strong>
+                </div>
+                <div style="font-size: 0.9em;">
+                    Sessions: ${sessions} | Page Views: ${pageviews}
+                </div>
+            `;
+        } catch (error) {
+            console.error('Error fetching visitor data:', error);
+            document.getElementById('visitor-count').innerHTML = 'Visitor data unavailable';
+        }
+    }
+
+    function initializeGoogleAnalytics() {
+        gapi.load('client:auth2', function() {
+            gapi.client.init({
+                apiKey: 'YOUR_API_KEY',
+                clientId: 'YOUR_CLIENT_ID',
+                discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
+                scope: 'https://www.googleapis.com/auth/analytics.readonly'
+            }).then(function() {
+                return gapi.auth2.getAuthInstance().signIn();
+            }).then(function() {
+                fetchVisitorCount();
+            });
+        });
+    }
+    </script>
+
+    <script src="https://apis.google.com/js/api.js" onload="initializeGoogleAnalytics()"></script>
+
+
+<!-- Vue & Axios -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
